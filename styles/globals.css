@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+
+body {
+  background-color: #1a2a33;
+}
+
+.square {
+  @apply float-left m-2 h-36 w-36 rounded-2xl border-gray-400 bg-light-navy p-0 text-center text-2xl font-bold shadow-xlInner hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:ring-offset-2;
+}
+
+.board-row {
+  @apply after:clear-both after:table after:content-none;
+}
+
+.btn {
+  @apply rounded-lg px-4 py-2 font-bold text-navy shadow-inner;
+}
+
+.btn-yellow {
+  @apply bg-light-yellow hover:bg-light-yellow-hover;
+}
+
+@tailwind utilities;
