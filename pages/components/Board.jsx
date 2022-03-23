@@ -35,29 +35,52 @@ function Board() {
   }
 
   return (
-    <div className="m-auto flex h-screen w-screen flex-col items-center justify-center">
-      <div className="mb-4 flex h-12 w-36 items-center justify-center rounded-xl bg-light-navy font-bold text-gray-400 shadow-inner">
-        {status}
+    <>
+      {winner && (
+        <div className="absolute top-0 left-0 flex h-screen w-screen items-center bg-black/50">
+          <div className="z-10 flex h-1/3 w-screen flex-col items-center justify-evenly bg-navy py-5">
+            <div className="flex w-2/3 max-w-lg items-center justify-center gap-4 font-bold tracking-wider text-gray-300">
+              <Image src={winner.props.src} height={20} width={20} />
+              <p>WINS!</p>
+            </div>
+            <div className="flex w-2/3 max-w-lg items-center justify-evenly">
+              <Image src={winner.props.src} height={64} width={64} />
+              <h1 className="text-3xl font-extrabold tracking-wider text-light-yellow">
+                TAKES THE ROUND
+              </h1>
+            </div>
+            <div>
+              <button className="btn btn-yellow mt-4 w-28" onClick={restart}>
+                Restart
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      <div className="m-auto flex h-screen w-screen flex-col items-center justify-center">
+        <div className="mb-4 flex h-12 w-36 items-center justify-center rounded-xl bg-light-navy font-bold text-gray-400 shadow-inner">
+          {status}
+        </div>
+        <div className="board-row">
+          {renderSquare(0)}
+          {renderSquare(1)}
+          {renderSquare(2)}
+        </div>
+        <div className="board-row">
+          {renderSquare(3)}
+          {renderSquare(4)}
+          {renderSquare(5)}
+        </div>
+        <div className="board-row">
+          {renderSquare(6)}
+          {renderSquare(7)}
+          {renderSquare(8)}
+        </div>
+        <button className="btn btn-yellow mt-4 w-28" onClick={restart}>
+          Restart
+        </button>
       </div>
-      <div className="board-row">
-        {renderSquare(0)}
-        {renderSquare(1)}
-        {renderSquare(2)}
-      </div>
-      <div className="board-row">
-        {renderSquare(3)}
-        {renderSquare(4)}
-        {renderSquare(5)}
-      </div>
-      <div className="board-row">
-        {renderSquare(6)}
-        {renderSquare(7)}
-        {renderSquare(8)}
-      </div>
-      <button className="btn btn-yellow mt-4 w-28" onClick={restart}>
-        Restart
-      </button>
-    </div>
+    </>
   )
 }
 

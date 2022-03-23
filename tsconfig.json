@@ -19,7 +19,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/components/Board.js"
+    "pages/components/Board.js",
+    "pages/components/Board.jsx"
   ],
   "exclude": ["node_modules"]
 }
